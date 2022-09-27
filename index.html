@@ -1,7 +1,22 @@
 <html style="background:black;">
     <head>
-        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+        <script>
+            import { initializeApp } from "firebase/app";
+            import { getFirestore } from "firebase/firestore";
+
+            import { collection, addDoc } from "firebase/firestore"; 
+
+            try {
+            const docRef = await addDoc(collection(db, "users"), {
+                first: "Ada",
+                last: "Lovelace",
+                born: 1815
+            });
+            console.log("Document written with ID: ", docRef.id);
+            } catch (e) {
+            console.error("Error adding document: ", e);
+            }
+        </script>
     </head>
     <body>
 
